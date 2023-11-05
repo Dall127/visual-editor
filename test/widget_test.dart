@@ -20,7 +20,7 @@ void main() {
     config = EditorConfigM();
   });
 
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Counter increments smoke test', (tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(VisualEditor(
       controller: editorController,

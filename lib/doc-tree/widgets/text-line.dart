@@ -102,7 +102,7 @@ class _TextLineState extends State<TextLine> {
     final strutStyle = StrutStyle.fromTextStyle(textSpan.style!);
     final textAlign = _textLineStylesService.getTextAlign(widget.line);
     final locale = Localizations.localeOf(context);
-    final textScale = MediaQuery.textScaleFactorOf(context);
+    final textScale = MediaQuery.textScalerOf(context);
 
     return RichTextProxy(
       textStyle: textSpan.style!,
@@ -114,7 +114,8 @@ class _TextLineState extends State<TextLine> {
         text: textSpan,
         textAlign: textAlign,
         textDirection: widget.textDirection,
-        strutStyle: strutStyle, textScaler: TextScaler.linear(textScale),
+        strutStyle: strutStyle,
+        textScaler: textScale,
       ),
     );
   }
