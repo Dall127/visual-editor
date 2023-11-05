@@ -3,8 +3,7 @@ import 'package:flutter/rendering.dart';
 import '../../document/models/attributes/attribute-scope.enum.dart';
 import '../../document/models/attributes/attribute.model.dart';
 import '../../document/models/attributes/attributes.model.dart';
-import '../../document/models/nodes/line.model.dart';
-import '../../document/models/nodes/node.model.dart';
+import '../../document/models/nodes/node_models.dart';
 import '../../document/services/nodes/node.utils.dart';
 import '../../headings/models/heading-type.enum.dart';
 import '../../headings/models/heading.model.dart';
@@ -49,9 +48,11 @@ class RectanglesService {
     final lineContainsHighlight = _lineContainsSelection(line, selection);
 
     if (lineContainsHighlight) {
-      final local = _selectionRendererService.getLocalSelection(line, selection, false);
+      final local =
+          _selectionRendererService.getLocalSelection(line, selection, false);
       final nodeRectangles = underlyingText.getBoxesForSelection(local);
-      final docRelPosition = underlyingText.localToGlobal(const Offset(0, 0), ancestor: state.refs.renderer);
+      final docRelPosition = underlyingText.localToGlobal(const Offset(0, 0),
+          ancestor: state.refs.renderer);
       rectangles = SelectionRectanglesM(
         textSelection: local,
         rectangles: nodeRectangles,
@@ -98,7 +99,8 @@ class RectanglesService {
       // ignore: avoid_types_on_closure_parameters
       markers.forEach((marker) {
         final rectangles = getRectanglesFromNode(node, underlyingText);
-        final docRelPosition = underlyingText?.localToGlobal(const Offset(0, 0), ancestor: state.refs.renderer);
+        final docRelPosition = underlyingText?.localToGlobal(const Offset(0, 0),
+            ancestor: state.refs.renderer);
         final nodeOffset = _nodeUtils.getDocumentOffset(node);
         final renderedMarker = marker.copyWith(
           // For markers that have been extracted at init we already have the text selection.
@@ -108,7 +110,8 @@ class RectanglesService {
           // When a new marker is inserted it is passed to the format() method, then to the rules and then to composes().
           // Once compose completes, it then calls the runBuild() which means a new build() cycle starts.
           // During the build we always have access to the selection values, once again by looking at the document data.
-          textSelection: TextSelection(baseOffset: nodeOffset, extentOffset: nodeOffset + node.charsNum),
+          textSelection: TextSelection(
+              baseOffset: nodeOffset, extentOffset: nodeOffset + node.charsNum),
           rectangles: rectangles,
           docRelPosition: docRelPosition,
         );
@@ -156,7 +159,8 @@ class RectanglesService {
       );
 
       // Text selection in every line
-      final selection = TextSelection(baseOffset: 0, extentOffset: line.charsNum);
+      final selection =
+          TextSelection(baseOffset: 0, extentOffset: line.charsNum);
 
       // Text selection in the entire document
       final lineOffset = _nodeUtils.getDocumentOffset(line);
@@ -225,11 +229,15 @@ class RectanglesService {
 
       if (hasLink) {
         if (lineContainsSelection) {
-          final hasSelectedNode = _nodeUtils.containsOffset(node, textSelection.baseOffset);
+          final hasSelectedNode =
+              _nodeUtils.containsOffset(node, textSelection.baseOffset);
 
           if (hasSelectedNode) {
-            final local = _selectionRendererService.getLocalSelection(line, textSelection, false);
-            final docRelPosition = underlyingText.localToGlobal(const Offset(0, 0), ancestor: state.refs.renderer);
+            final local = _selectionRendererService.getLocalSelection(
+                line, textSelection, false);
+            final docRelPosition = underlyingText.localToGlobal(
+                const Offset(0, 0),
+                ancestor: state.refs.renderer);
             final nodeRectangles = getRectanglesFromNode(node, underlyingText);
 
             rectangles = SelectionRectanglesM(
@@ -330,6 +338,7 @@ class RectanglesService {
 
   bool _lineContainsSelection(LineM line, TextSelection selection) {
     final lineOffset = _nodeUtils.getDocumentOffset(line);
-    return lineOffset <= selection.end && selection.start <= lineOffset + line.charsNum - 1;
+    return lineOffset <= selection.end &&
+        selection.start <= lineOffset + line.charsNum - 1;
   }
 }

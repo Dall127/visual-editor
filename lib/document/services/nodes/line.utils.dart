@@ -7,13 +7,8 @@ import '../../models/attributes/attribute.model.dart';
 import '../../models/attributes/attributes-types.model.dart';
 import '../../models/attributes/paste-style.model.dart';
 import '../../models/delta/delta.model.dart';
-import '../../models/nodes/block.model.dart';
-import '../../models/nodes/embed-node.model.dart';
-import '../../models/nodes/embed.model.dart';
-import '../../models/nodes/leaf.model.dart';
-import '../../models/nodes/line.model.dart';
-import '../../models/nodes/style.model.dart';
-import '../../models/nodes/text.model.dart';
+import '../../models/nodes/node_models.dart';
+
 import '../delta.utils.dart';
 import 'block.utils.dart';
 import 'container.utils.dart';
@@ -178,9 +173,8 @@ class LineUtils {
   }
 
   DeltaM toDelta(LineM line) {
-    final currDelta = line.children
-        .map(_nodeUtils.toDelta)
-        .fold(DeltaM(), _du.concat);
+    final currDelta =
+        line.children.map(_nodeUtils.toDelta).fold(DeltaM(), _du.concat);
     var attributes = line.style;
 
     if (line.parent is BlockM) {
@@ -500,7 +494,6 @@ class LineUtils {
         newStyle = _stylesUtils.mergeAll(newStyle, parentStyleToMerge);
         _applyBlockStyles(line, newStyle);
       } // Else the same style, no-op.
-
     } else if (blockStyle.value != null) {
       // Only wrap with a new block if this is not an unset
       _applyBlockStyles(line, newStyle);

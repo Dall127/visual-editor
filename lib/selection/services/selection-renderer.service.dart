@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 import '../../doc-tree/services/coordinates.service.dart';
-import '../../document/models/nodes/node.model.dart';
+import '../../document/models/nodes/node_models.dart';
 import '../../document/services/nodes/node.utils.dart';
 import '../../shared/models/editable-box-renderer.model.dart';
 import '../../shared/state/editor.state.dart';

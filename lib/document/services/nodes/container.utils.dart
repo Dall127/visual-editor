@@ -1,7 +1,5 @@
-import '../../models/nodes/container.model.dart';
-import '../../models/nodes/node-position.model.dart';
-import '../../models/nodes/node.model.dart';
-import '../../models/nodes/style.model.dart';
+import '../../models/nodes/node_models.dart';
+
 import 'node.utils.dart';
 
 final _nodeUtils = NodeUtils();

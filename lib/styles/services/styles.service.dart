@@ -33,8 +33,10 @@ class StylesService {
   }
 
   bool get isSelectionCode {
-    final isSelectionInlineCode = getSelectionStyle().attributes.containsKey('code');
-    final isSelectionBlockCode = getSelectionStyle().attributes.containsKey('code-block');
+    final isSelectionInlineCode =
+        getSelectionStyle().attributes.containsKey('code');
+    final isSelectionBlockCode =
+        getSelectionStyle().attributes.containsKey('code-block');
     return isSelectionInlineCode || isSelectionBlockCode;
   }
 
@@ -58,7 +60,8 @@ class StylesService {
     AttributeM? attribute, [
     bool emitEvent = true,
   ]) {
-    final isAttrCode = attribute?.key == 'code' || attribute?.key == 'code-block';
+    final isAttrCode =
+        attribute?.key == 'code' || attribute?.key == 'code-block';
 
     // Block non-code attr in code selection
     if (isSelectionCode && !isAttrCode) {
@@ -71,14 +74,17 @@ class StylesService {
 
     // Cache Toggled Style
     // If no text was selected we store the new style in memory to later reuse it when typing new chars.
-    if (len == 0 && attribute!.isInline && attribute.key != AttributesM.link.key) {
+    if (len == 0 &&
+        attribute!.isInline &&
+        attribute.key != AttributesM.link.key) {
       // Add the attribute to our toggledStyle.
       // It will be used later upon insertion.
       state.styles.updateToggledStyle(attribute);
     }
 
     // Apply the new styles
-    final change = state.refs.documentController.format(index, len, attribute, emitEvent);
+    final change =
+        state.refs.documentController.format(index, len, attribute, emitEvent);
 
     // Update selection if changed
     final selection = state.selection.selection;
@@ -108,7 +114,8 @@ class StylesService {
   // Applies an attribute to a selection of text (except code blocks)
   void formatSelection(AttributeM? attribute, [bool emitEvent = true]) {
     final selection = state.selection.selection;
-    formatTextRange(selection.start, selection.end - selection.start, attribute, emitEvent);
+    formatTextRange(
+        selection.start, selection.end - selection.start, attribute, emitEvent);
   }
 
   // === GET STYLES ===
@@ -150,7 +157,8 @@ class StylesService {
   // Checks if selection contains a checklist attribute or not.
   bool hasSelectionChecklistAttr() {
     final attrs = getSelectionStyle().attributes;
-    var attribute = _toolbarService.getToolbarButtonToggler()[AttributesM.list.key];
+    var attribute =
+        _toolbarService.getToolbarButtonToggler()[AttributesM.list.key];
 
     if (attribute == null) {
       attribute = attrs[AttributesM.list.key];
@@ -163,7 +171,8 @@ class StylesService {
       return false;
     }
 
-    return attribute.value == AttributesAliasesM.unchecked.value || attribute.value == AttributesAliasesM.checked.value;
+    return attribute.value == AttributesAliasesM.unchecked.value ||
+        attribute.value == AttributesAliasesM.checked.value;
   }
 
   // === TOGGLE STYLE ===
@@ -189,7 +198,8 @@ class StylesService {
   // Toggles on/off the specified attribute in the current selection
   void toggleAttributeInSelection(AttributeM attribute) {
     final isToggled = isAttributeToggledInSelection(attribute);
-    final toggledAttribute = isToggled ? AttributeUtils.clone(attribute, null) : attribute;
+    final toggledAttribute =
+        isToggled ? AttributeUtils.clone(attribute, null) : attribute;
 
     formatSelection(toggledAttribute);
   }

@@ -1,11 +1,8 @@
 import 'dart:math' as math;
 
 import '../../models/delta/delta.model.dart';
-import '../../models/nodes/embed-node.model.dart';
-import '../../models/nodes/embed.model.dart';
-import '../../models/nodes/leaf.model.dart';
-import '../../models/nodes/style.model.dart';
-import '../../models/nodes/text.model.dart';
+import '../../models/nodes/node_models.dart';
+
 import '../delta.utils.dart';
 
 final _du = DeltaUtils();
@@ -14,7 +11,7 @@ class LeafUtils {
   // Creates a new Leaf with specified data.
   LeafM newLeaf(Object data) {
     if (data is EmbedM) {
-      return EmbedNodeM(data);
+      return LeafM(data);
     }
 
     final text = data as String;

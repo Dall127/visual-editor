@@ -1,8 +1,4 @@
-import 'dart:collection';
-
-import '../../services/nodes/styles.utils.dart';
-import 'container.model.dart';
-import 'style.model.dart';
+part of 'node_models.dart';
 
 final _stylesUtils = StylesUtils();
 
@@ -11,7 +7,7 @@ final _stylesUtils = StylesUtils();
 // The offset property is relative to parent.
 // documentOffset provides absolute offset of this node within the document.
 // A node is considered mounted when the parent property is not `null`.
-abstract class NodeM extends LinkedListEntry<NodeM> {
+sealed class NodeM extends LinkedListEntry<NodeM> {
   ContainerM? parent;
   StyleM style = StyleM();
 

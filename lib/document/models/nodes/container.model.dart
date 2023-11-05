@@ -1,13 +1,11 @@
-import 'dart:collection';
-
-import 'node.model.dart';
+part of 'node_models.dart';
 
 // Container can accommodate other document nodes.
 // Delegates insert, retain and delete operations to children nodes.
 // For each operation container looks for a child at specified
 // index position and forwards operation to that child.
 // Most of the operation handling logic is implemented by Line and Text.
-abstract class ContainerM<T extends NodeM?> extends NodeM {
+sealed class ContainerM<T extends NodeM?> extends NodeM {
   final LinkedList<NodeM> _children = LinkedList<NodeM>();
 
   // === QUERIES ===
@@ -36,5 +34,4 @@ abstract class ContainerM<T extends NodeM?> extends NodeM {
 
   @override
   String toString() => _children.join('\n');
-
 }

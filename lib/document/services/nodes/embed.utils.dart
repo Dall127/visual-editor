@@ -1,4 +1,4 @@
-import '../../models/nodes/embed.model.dart';
+import '../../models/nodes/node_models.dart';
 
 class EmbedUtils {
   EmbedM fromObject(Object? obj) {
@@ -12,7 +12,7 @@ class EmbedUtils {
     } else {
       throw UnimplementedError(
         '$obj is not compatible with type of Map<String, dynamic>.'
-            'Cannot cast object $obj into EmbedM.',
+        'Cannot cast object $obj into EmbedM.',
       );
     }
   }

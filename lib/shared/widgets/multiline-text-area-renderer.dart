@@ -2,7 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/rendering.dart';
 
-import '../../document/models/nodes/container.model.dart';
+import '../../document/models/nodes/node_models.dart';
 import '../models/editable-box-renderer.model.dart';
 
 class EditableContainerParentData

@@ -4,8 +4,8 @@ import 'dart:math' as math;
 import 'package:flutter/rendering.dart';
 
 import '../../cursor/controllers/cursor.controller.dart';
-import '../../document/models/nodes/container.model.dart' as container_node;
-import '../../document/models/nodes/line.model.dart';
+import '../../document/models/nodes/node_models.dart';
+
 import '../../document/services/nodes/node.utils.dart';
 import '../../headings/models/heading.model.dart';
 import '../../highlights/models/highlight.model.dart';
@@ -435,7 +435,7 @@ class EditableTextLineBoxRenderer extends EditableBoxRenderer {
   }
 
   @override
-  container_node.ContainerM get container => line;
+  ContainerM get container => line;
 
   double get cursorWidth => cursorController.style.width;
 

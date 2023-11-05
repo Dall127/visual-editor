@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../../document/models/nodes/node.model.dart';
+import '../../document/models/nodes/node_models.dart';
 import '../../shared/translations/toolbar.i18n.dart';
 import '../models/link-action-menu.enum.dart';
 import '../widgets/cupertino-link-action.dart.dart';

@@ -1,4 +1,4 @@
-import '../../services/nodes/embed.utils.dart';
+part of 'node_models.dart';
 
 final _embedUtils = EmbedUtils();
 

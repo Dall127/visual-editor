@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../controller/controllers/editor-controller.dart';
-import '../../document/models/nodes/embed-node.model.dart';
+import '../../document/models/nodes/node_models.dart';
 
 // Embed builders are classes that generate widgets based on the delta document embed operations.
 // The type string is used to match the builder with the embed delta operation type.

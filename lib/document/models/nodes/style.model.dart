@@ -1,8 +1,4 @@
-import 'package:collection/collection.dart';
-
-import '../../services/nodes/attribute.utils.dart';
-import '../../services/nodes/styles.utils.dart';
-import '../attributes/attribute.model.dart';
+part of 'node_models.dart';
 
 final _styleUtils = StylesUtils();
 

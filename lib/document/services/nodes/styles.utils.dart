@@ -5,7 +5,7 @@ import '../../models/attributes/attribute-scope.enum.dart';
 import '../../models/attributes/attribute.model.dart';
 import '../../models/attributes/attributes-types.model.dart';
 import '../../models/attributes/attributes.model.dart';
-import '../../models/nodes/style.model.dart';
+import '../../models/nodes/node_models.dart';
 import 'attribute.utils.dart';
 
 class StylesUtils {

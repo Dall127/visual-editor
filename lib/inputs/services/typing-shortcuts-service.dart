@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 import '../../document/models/attributes/attribute.model.dart';
 import '../../document/models/attributes/attributes-aliases.model.dart';
 import '../../document/models/history/change-source.enum.dart';
-import '../../document/models/nodes/block.model.dart';
-import '../../document/models/nodes/line.model.dart';
+import '../../document/models/nodes/node_models.dart';
+
 import '../../document/services/nodes/line.utils.dart';
 import '../../selection/services/selection.service.dart';
 import '../../shared/state/editor.state.dart';

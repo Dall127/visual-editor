@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import '../../document/models/nodes/embed-node.model.dart';
-import '../../document/models/nodes/embed.model.dart';
+import '../../document/models/nodes/node_models.dart';
+
 import '../../editor/services/editor.service.dart';
 import '../../selection/services/selection.service.dart';
 import '../../shared/state/editor.state.dart';

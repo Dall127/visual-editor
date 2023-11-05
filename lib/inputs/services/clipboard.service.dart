@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import '../../cursor/services/caret.service.dart';
 import '../../document/models/attributes/attributes.model.dart';
 import '../../document/models/attributes/styling-attributes.dart';
-import '../../document/models/nodes/embed.model.dart';
+import '../../document/models/nodes/node_models.dart';
 import '../../editor/services/editor.service.dart';
 import '../../embeds/const/embeds.const.dart';
 import '../../embeds/models/image.model.dart';
@@ -67,7 +67,8 @@ class ClipboardService {
 
   // If selection contains a link, copy to clipboard the link url.
   void copySelectionLinkUrl() {
-    final selectionHasLink = _stylesService.getSelectionStyle().attributes.containsKey('link');
+    final selectionHasLink =
+        _stylesService.getSelectionStyle().attributes.containsKey('link');
 
     if (selectionHasLink) {
       final linkUrl = _stylesService

@@ -109,7 +109,10 @@ class VisualEditor extends StatefulWidget with EditorStateReceiver {
 }
 
 class VisualEditorState extends State<VisualEditor>
-    with AutomaticKeepAliveClientMixin<VisualEditor>, WidgetsBindingObserver, TickerProviderStateMixin<VisualEditor>
+    with
+        AutomaticKeepAliveClientMixin<VisualEditor>,
+        WidgetsBindingObserver,
+        TickerProviderStateMixin<VisualEditor>
     implements TextSelectionDelegate, TextInputClient {
   late final EditorService _editorService;
   late final SelectionHandlesService _selectionHandlesService;
@@ -267,11 +270,13 @@ class VisualEditorState extends State<VisualEditor>
   }
 
   @override
-  Future<void> pasteText(SelectionChangedCause cause) async => _clipboardService.pasteText(cause);
+  Future<void> pasteText(SelectionChangedCause cause) async =>
+      _clipboardService.pasteText(cause);
 
   @override
   void selectAll(SelectionChangedCause cause) {
-    _selectionService.selectAll(cause, _editorService.removeSpecialCharsAndUpdateDocTextAndStyle);
+    _selectionService.selectAll(
+        cause, _editorService.removeSpecialCharsAndUpdateDocTextAndStyle);
   }
 
   // === INPUT CLIENT OVERRIDES ===
@@ -394,7 +399,8 @@ class VisualEditorState extends State<VisualEditor>
   }
 
   @override
-  void didChangeInputControl(TextInputControl? oldControl, TextInputControl? newControl) {
+  void didChangeInputControl(
+      TextInputControl? oldControl, TextInputControl? newControl) {
     // TODO: implement didChangeInputControl
   }
 
@@ -405,7 +411,9 @@ class VisualEditorState extends State<VisualEditor>
 
   @override
   void insertContent(KeyboardInsertedContent content) {
-    assert(state.config.contentInsertionConfiguration?.allowedMimeTypes.contains(content.mimeType) ?? false);
+    assert(state.config.contentInsertionConfiguration?.allowedMimeTypes
+            .contains(content.mimeType) ??
+        false);
     state.config.contentInsertionConfiguration?.onContentInserted.call(content);
   }
 
@@ -417,7 +425,8 @@ class VisualEditorState extends State<VisualEditor>
 
   // Required to avoid circular reference between EditorService and KeyboardService.
   // Ugly solution but it works.
-  bool updGuiAndBuildViaHardwareKbEvent(_) => _keyboardService.updGuiAndBuildViaHardwareKeyboardEvent(
+  bool updGuiAndBuildViaHardwareKbEvent(_) =>
+      _keyboardService.updGuiAndBuildViaHardwareKeyboardEvent(
         _guiService,
         _runBuild,
       );
@@ -504,7 +513,8 @@ class VisualEditorState extends State<VisualEditor>
   }
 
   // Used by the selection toolbar/controls to position itself in the right location
-  Widget _selectionToolbarTarget({required Widget child}) => CompositedTransformTarget(
+  Widget _selectionToolbarTarget({required Widget child}) =>
+      CompositedTransformTarget(
         link: state.selectionLayers.toolbarLayerLink,
         child: child,
       );
@@ -579,7 +589,8 @@ class VisualEditorState extends State<VisualEditor>
   // When a new widget tree is generated we need to find the new renderer class.
   // A new widget tree is usually created because of using setState in the client code.
   void _cacheEditorRendererRef() {
-    final renderer = _editorRendererKey.currentContext?.findRenderObject() as EditorTextAreaRenderer?;
+    final renderer = _editorRendererKey.currentContext?.findRenderObject()
+        as EditorTextAreaRenderer?;
 
     if (renderer != null) {
       state.refs.renderer = renderer;
@@ -678,7 +689,8 @@ class VisualEditorState extends State<VisualEditor>
 
     if (widget.scrollController != _scrollController) {
       _scrollController.removeListener(_updateSelectionHandlesLocation);
-      state.refs.scrollController = widget.scrollController ?? ScrollController();
+      state.refs.scrollController =
+          widget.scrollController ?? ScrollController();
       _scrollController.addListener(_updateSelectionHandlesLocation);
     }
   }
@@ -700,7 +712,8 @@ class VisualEditorState extends State<VisualEditor>
 
   // Cache the pressed keys in the state store for later reads.
   bool _cachePressedKeys(_) {
-    _keyboardService.setPressedKeys(HardwareKeyboard.instance.logicalKeysPressed);
+    _keyboardService
+        .setPressedKeys(HardwareKeyboard.instance.logicalKeysPressed);
     return false;
   }
 
@@ -713,4 +726,14 @@ class VisualEditorState extends State<VisualEditor>
       onScroll();
     }
   }
+
+  // TODO: implement these methods
+  @override
+  bool get lookUpEnabled => false;
+
+  @override
+  bool get searchWebEnabled => true;
+
+  @override
+  bool get shareEnabled => false;
 }

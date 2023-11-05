@@ -1,6 +1,7 @@
 import 'package:flutter/rendering.dart';
 
-import '../../document/models/nodes/block.model.dart';
+import '../../document/models/nodes/node_models.dart';
+
 import '../../document/services/nodes/container.utils.dart';
 import '../../document/services/nodes/node.utils.dart';
 import '../../selection/services/selection-renderer.service.dart';

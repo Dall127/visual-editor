@@ -12,7 +12,7 @@ import '../models/delta/data-decoder.type.dart';
 import '../models/delta/delta.model.dart';
 import '../models/delta/diff.model.dart';
 import '../models/delta/operation.model.dart';
-import '../models/nodes/node.model.dart';
+import '../models/nodes/node_models.dart';
 import 'nodes/operations.utils.dart';
 
 // Handles the mutations of the delta operations list.

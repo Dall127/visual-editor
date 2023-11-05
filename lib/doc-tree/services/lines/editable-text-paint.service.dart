@@ -5,7 +5,7 @@ import 'package:flutter/rendering.dart';
 import '../../../cursor/controllers/cursor.controller.dart';
 import '../../../cursor/widgets/cursor-painter.dart';
 import '../../../document/models/attributes/attributes.model.dart';
-import '../../../document/models/nodes/text.model.dart';
+import '../../../document/models/nodes/node_models.dart';
 import '../../../document/services/nodes/node.utils.dart';
 import '../../../highlights/models/highlight.model.dart';
 import '../../../markers/models/marker-type.model.dart';

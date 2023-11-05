@@ -1,12 +1,7 @@
 import '../../models/attributes/attribute.model.dart';
 import '../../models/delta/delta.model.dart';
-import '../../models/nodes/block.model.dart';
-import '../../models/nodes/container.model.dart';
-import '../../models/nodes/leaf.model.dart';
-import '../../models/nodes/line.model.dart';
-import '../../models/nodes/node.model.dart';
-import '../../models/nodes/root.model.dart';
-import '../../models/nodes/style.model.dart';
+import '../../models/nodes/node_models.dart';
+
 import 'block.utils.dart';
 import 'container.utils.dart';
 import 'leaf.utils.dart';

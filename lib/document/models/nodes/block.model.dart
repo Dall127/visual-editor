@@ -1,7 +1,4 @@
-import '../../services/nodes/block.utils.dart';
-import 'container.model.dart';
-import 'line.model.dart';
-import 'node.model.dart';
+part of 'node_models.dart';
 
 final _blockUtils = BlockUtils();
 
@@ -14,7 +11,7 @@ final _blockUtils = BlockUtils();
 // - Text Alignment
 // - Text Direction
 // - Code Block
-class BlockM extends ContainerM<LineM?> {
+final class BlockM extends ContainerM<LineM?> {
   // Creates new unmounted Block.
   @override
   NodeM newInstance() => BlockM();

@@ -1,4 +1,4 @@
-import 'node.model.dart';
+part of 'node_models.dart';
 
 // Result of a NodeM child query in a ContainerM (line or block).
 // Contains offset of character within the child node.

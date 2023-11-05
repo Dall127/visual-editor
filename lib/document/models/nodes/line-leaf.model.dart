@@ -1,5 +1,4 @@
-import 'leaf.model.dart';
-import 'line.model.dart';
+part of 'node_models.dart';
 
 class LineLeafM {
   final LineM? line;

@@ -1,4 +1,4 @@
-import '../nodes/style.model.dart';
+import '../nodes/node_models.dart';
 
 // Used to restore the styling when copy pasting text in the editor.
 // The remote input used by flutter stores only plain text.

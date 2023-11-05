@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../document/models/attributes/attributes-aliases.model.dart';
 import '../../document/models/attributes/attributes.model.dart';
-import '../../document/models/nodes/block.model.dart';
-import '../../document/models/nodes/line.model.dart';
+import '../../document/models/nodes/node_models.dart';
+
 import '../../document/services/delta.utils.dart';
 import '../../document/services/nodes/node.utils.dart';
 import '../../highlights/models/highlight.model.dart';

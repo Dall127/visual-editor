@@ -1,13 +1,10 @@
-import '../../services/nodes/leaf.utils.dart';
-import 'line.model.dart';
-import 'node.model.dart';
-import 'style.model.dart';
+part of 'node_models.dart';
 
 final _leafUtils = LeafUtils();
 
 // A leaf in Visual Editor document tree.
 // Contents of this node, either a String if this is a Text or an Embed if this is an BlockEmbed.
-abstract class LeafM extends NodeM {
+sealed class LeafM extends NodeM {
   Object value;
 
   factory LeafM(Object data) => _leafUtils.newLeaf(data);

@@ -1,5 +1,5 @@
 import '../../models/delta/delta.model.dart';
-import '../../models/nodes/root.model.dart';
+import '../../models/nodes/node_models.dart';
 import '../delta.utils.dart';
 import 'node.utils.dart';
 

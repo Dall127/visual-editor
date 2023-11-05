@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:visual_editor/controller/controllers/editor-controller.dart';
-import 'package:visual_editor/document/models/nodes/embed-node.model.dart';
+import 'package:visual_editor/document/models/nodes/node_models.dart';
 import 'package:visual_editor/embeds/models/embed-builder.model.dart';
 
 import '../../../embeds/const/demo-embeds.const.dart';

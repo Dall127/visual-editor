@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:gallery_saver/gallery_saver.dart';
 
 import '../../shared/state/editor.state.dart';
 import '../../shared/translations/toolbar.i18n.dart';
-import '../services/media-loader.service.dart';
+// import '../services/media-loader.service.dart';
 import 'image-tap-wrapper.dart';
 import 'simple-dialog-item.dart';
 
-// TODO: TEST ON MOBILE
+// TODO: Remove this file and use the one in the embeds folder.
 // Dialog for image read only that can save the image or zoom on the image.
 class OptionMenuForReadOnlyImage extends StatelessWidget {
-  late final MediaLoaderService _mediaLoaderService;
+  // late final MediaLoaderService _mediaLoaderService;
 
   final String imageUrl;
   final Widget child;
@@ -21,7 +20,7 @@ class OptionMenuForReadOnlyImage extends StatelessWidget {
     required this.child,
     Key? key,
   }) : super(key: key) {
-    _mediaLoaderService = MediaLoaderService(state);
+    // _mediaLoaderService = MediaLoaderService(state);
   }
 
   @override
@@ -30,7 +29,7 @@ class OptionMenuForReadOnlyImage extends StatelessWidget {
           context: context,
           builder: (context) => _dialog(
             children: [
-              _saveDialogItem(context),
+              // _saveDialogItem(context),
               _zoomDialogItem(context),
             ],
           ),
@@ -50,26 +49,26 @@ class OptionMenuForReadOnlyImage extends StatelessWidget {
         ),
       );
 
-  Widget _saveDialogItem(BuildContext context) => SimpleDialogItem(
-        icon: Icons.save,
-        color: Colors.greenAccent,
-        text: 'Save'.i18n,
-        onPressed: () {
-          final _imageUrl = _mediaLoaderService.appendFileExtensionToImageUrl(
-            imageUrl,
-          );
-          GallerySaver.saveImage(_imageUrl).then(
-            (_) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text('Saved'.i18n),
-                ),
-              );
-              Navigator.pop(context);
-            },
-          );
-        },
-      );
+  // Widget _saveDialogItem(BuildContext context) => SimpleDialogItem(
+  //       icon: Icons.save,
+  //       color: Colors.greenAccent,
+  //       text: 'Save'.i18n,
+  //       onPressed: () {
+  //         final _imageUrl = _mediaLoaderService.appendFileExtensionToImageUrl(
+  //           imageUrl,
+  //         );
+  //         GallerySaver.saveImage(_imageUrl).then(
+  //           (_) {
+  //             ScaffoldMessenger.of(context).showSnackBar(
+  //               SnackBar(
+  //                 content: Text('Saved'.i18n),
+  //               ),
+  //             );
+  //             Navigator.pop(context);
+  //           },
+  //         );
+  //       },
+  //     );
 
   Widget _zoomDialogItem(BuildContext context) => SimpleDialogItem(
         icon: Icons.zoom_in,

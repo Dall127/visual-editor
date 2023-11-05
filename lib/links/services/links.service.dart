@@ -4,7 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../doc-tree/const/link-prefixes.const.dart';
 import '../../document/models/attributes/attributes.model.dart';
-import '../../document/models/nodes/node.model.dart';
+import '../../document/models/nodes/node_models.dart';
 import '../../document/services/nodes/node.utils.dart';
 import '../../selection/services/selection.service.dart';
 import '../../shared/state/editor.state.dart';
@@ -144,7 +144,7 @@ class LinksService {
 
       if (firstLinkRectIsNotEmpty) {
         final isLinkSelected =
-        _stylesService.getSelectionStyle().attributes.containsKey('link');
+            _stylesService.getSelectionStyle().attributes.containsKey('link');
 
         if (isLinkSelected) {
           // Get positions for offset
@@ -169,7 +169,7 @@ class LinksService {
           // using the Overlay in flutter.
           final widthOffset = Offset(rectangle.left, 0);
           final widthToGlobalOffset =
-          state.refs.renderer.localToGlobal(widthOffset);
+              state.refs.renderer.localToGlobal(widthOffset);
 
           return Offset(
             widthToGlobalOffset.dx - triangleTooltipMargin,

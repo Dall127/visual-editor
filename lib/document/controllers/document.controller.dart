@@ -9,14 +9,8 @@ import '../models/delta-doc.model.dart';
 import '../models/delta/delta-changes.model.dart';
 import '../models/delta/delta.model.dart';
 import '../models/history/change-source.enum.dart';
-import '../models/nodes/block.model.dart';
-import '../models/nodes/embed.model.dart';
-import '../models/nodes/leaf.model.dart';
-import '../models/nodes/line-leaf.model.dart';
-import '../models/nodes/line.model.dart';
-import '../models/nodes/node-position.model.dart';
-import '../models/nodes/root.model.dart';
-import '../models/nodes/style.model.dart';
+import '../models/nodes/node_models.dart';
+
 import '../services/delta.utils.dart';
 import '../services/document.utils.dart';
 import '../services/nodes/container.utils.dart';

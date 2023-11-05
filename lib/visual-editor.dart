@@ -1,5 +1,7 @@
 library visual_editor;
 
+export 'package:visual_editor/document/models/nodes/node_models.dart';
+
 export 'controller/controllers/editor-controller.dart';
 export 'doc-tree/models/vertical-spacing.model.dart';
 export 'doc-tree/style-widgets.dart';
@@ -7,9 +9,6 @@ export 'document/controllers/document.controller.dart';
 export 'document/models/attributes/attribute.model.dart';
 export 'document/models/delta-doc.model.dart';
 export 'document/models/delta/delta.model.dart';
-export 'document/models/nodes/embed.model.dart';
-export 'document/models/nodes/leaf.model.dart';
-export 'document/models/nodes/style.model.dart';
 export 'editor/models/editor-cfg.model.dart';
 export 'embeds/models/embed-builder.model.dart';
 export 'highlights/models/highlight.model.dart';

@@ -7,10 +7,8 @@ import '../../document/models/delta-doc.model.dart';
 import '../../document/models/delta/delta-changes.model.dart';
 import '../../document/models/delta/delta.model.dart';
 import '../../document/models/history/change-source.enum.dart';
-import '../../document/models/nodes/embed-node.model.dart';
-import '../../document/models/nodes/embed.model.dart';
-import '../../document/models/nodes/line-leaf.model.dart';
-import '../../document/models/nodes/style.model.dart';
+import '../../document/models/nodes/node_models.dart';
+
 import '../../document/services/delta.utils.dart';
 import '../../document/services/nodes/styles.utils.dart';
 import '../../headings/models/heading-type.enum.dart';

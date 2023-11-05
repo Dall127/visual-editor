@@ -1,6 +1,6 @@
 import 'package:flutter/rendering.dart';
 
-import '../../document/models/nodes/container.model.dart';
+import '../../document/models/nodes/node_models.dart';
 
 // Base class for render boxes of editable doc-tree.
 // Implementations of this class usually work as a wrapper around

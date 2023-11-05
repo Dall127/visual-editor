@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../document/models/nodes/line.model.dart';
+import '../../document/models/nodes/node_models.dart';
 import '../../headings/models/heading.model.dart';
 import '../../highlights/models/highlight.model.dart';
 import '../../markers/models/marker.model.dart';

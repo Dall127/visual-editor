@@ -5,11 +5,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../../document/models/attributes/attributes.model.dart';
-import '../../document/models/nodes/embed-node.model.dart';
-import '../../document/models/nodes/line.model.dart';
-import '../../document/models/nodes/node.model.dart';
-import '../../document/models/nodes/style.model.dart';
-import '../../document/models/nodes/text.model.dart';
+import '../../document/models/nodes/node_models.dart';
+
 import '../../editor/widgets/proxy/embed-proxy.dart';
 import '../../editor/widgets/proxy/rich-text-proxy.dart';
 import '../../inputs/services/keyboard.service.dart';
@@ -117,8 +114,7 @@ class _TextLineState extends State<TextLine> {
         text: textSpan,
         textAlign: textAlign,
         textDirection: widget.textDirection,
-        strutStyle: strutStyle,
-        textScaleFactor: textScale,
+        strutStyle: strutStyle, textScaler: TextScaler.linear(textScale),
       ),
     );
   }

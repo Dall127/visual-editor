@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../document/models/nodes/node.model.dart';
+import '../../document/models/nodes/node_models.dart';
 import 'link-action-menu.enum.dart';
 
 // Used internally by widget layer.

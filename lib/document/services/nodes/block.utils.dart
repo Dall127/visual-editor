@@ -1,7 +1,6 @@
 import '../../models/delta/delta.model.dart';
-import '../../models/nodes/block.model.dart';
-import '../../models/nodes/container.model.dart';
-import '../../models/nodes/node.model.dart';
+import '../../models/nodes/node_models.dart';
+
 import '../delta.utils.dart';
 import 'container.utils.dart';
 import 'node.utils.dart';

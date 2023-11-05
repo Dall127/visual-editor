@@ -5,8 +5,8 @@ import '../../markers/models/marker.model.dart';
 import '../models/attributes/attributes.model.dart';
 import '../models/delta/delta.model.dart';
 import '../models/delta/operation.model.dart';
-import '../models/nodes/embed.model.dart';
-import '../models/nodes/style.model.dart';
+import '../models/nodes/node_models.dart';
+
 import 'delta.utils.dart';
 import 'nodes/operations.utils.dart';
 

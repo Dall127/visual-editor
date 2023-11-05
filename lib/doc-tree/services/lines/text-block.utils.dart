@@ -1,6 +1,6 @@
 import '../../../document/models/attributes/attributes.model.dart';
-import '../../../document/models/nodes/block.model.dart';
-import '../../../document/models/nodes/line.model.dart';
+import '../../../document/models/nodes/node_models.dart';
+
 import '../../../styles/models/cfg/editor-styles.model.dart';
 import '../../models/vertical-spacing.model.dart';
 

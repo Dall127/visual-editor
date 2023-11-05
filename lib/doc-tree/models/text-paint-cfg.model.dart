@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../document/models/nodes/line.model.dart';
+import '../../document/models/nodes/node_models.dart';
 import '../../shared/models/content-proxy-box-renderer.model.dart';
 import '../../styles/models/doc-tree/inline-code-style.model.dart';
 

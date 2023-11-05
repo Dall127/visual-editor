@@ -1,4 +1,4 @@
-import '../../document/models/nodes/embed-node.model.dart';
+import '../../document/models/nodes/node_models.dart';
 import '../models/embed-builder.model.dart';
 import '../models/embed-builder.typedef.dart';
 

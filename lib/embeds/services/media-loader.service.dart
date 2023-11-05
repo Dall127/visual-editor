@@ -7,8 +7,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:string_validator/string_validator.dart';
 
 import '../../document/models/attributes/attributes.model.dart';
-import '../../document/models/nodes/embed.model.dart';
-import '../../document/models/nodes/style.model.dart';
+import '../../document/models/nodes/node_models.dart';
+
 import '../../editor/services/editor.service.dart';
 import '../../selection/services/selection.service.dart';
 import '../../shared/state/editor.state.dart';
@@ -42,7 +42,7 @@ class MediaLoaderService {
     final String? styles = _stylesService
         .getAllSelectionStyles()
         .firstWhere((s) => s.attributes.containsKey(AttributesM.style.key),
-            orElse: () => StyleM())
+            orElse: StyleM.new)
         .attributes[AttributesM.style.key]
         ?.value;
 

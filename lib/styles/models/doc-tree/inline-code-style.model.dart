@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../document/models/attributes/attributes-aliases.model.dart';
-import '../../../document/models/nodes/style.model.dart';
+import '../../../document/models/nodes/node_models.dart';
 
 // Theme data for inline code.
 class InlineCodeStyle {
@@ -68,5 +68,6 @@ class InlineCodeStyle {
   }
 
   @override
-  int get hashCode => Object.hash(style, header1, header2, header3, backgroundColor, radius);
+  int get hashCode =>
+      Object.hash(style, header1, header2, header3, backgroundColor, radius);
 }

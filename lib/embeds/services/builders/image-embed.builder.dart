@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import '../../../controller/controllers/editor-controller.dart';
 import '../../../document/models/attributes/attribute.model.dart';
 import '../../../document/models/attributes/attributes.model.dart';
-import '../../../document/models/nodes/embed-node.model.dart';
+import '../../../document/models/nodes/node_models.dart';
 import '../../../shared/state/editor.state.dart';
 import '../../../shared/utils/platform.utils.dart';
 import '../../../shared/utils/string.utils.dart';

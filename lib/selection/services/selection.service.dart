@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../cursor/services/caret.service.dart';
 import '../../doc-tree/services/coordinates.service.dart';
 import '../../document/models/history/change-source.enum.dart';
-import '../../document/models/nodes/style.model.dart';
+import '../../document/models/nodes/node_models.dart';
 import '../../document/services/nodes/node.utils.dart';
 import '../../editor/services/editor.service.dart';
 import '../../editor/services/run-build.service.dart';
@@ -144,7 +144,8 @@ class SelectionService {
     Offset? to,
   }) {
     final fromPosition = _coordinatesService.getPositionForOffset(from);
-    final toPosition = to == null ? null : _coordinatesService.getPositionForOffset(to);
+    final toPosition =
+        to == null ? null : _coordinatesService.getPositionForOffset(to);
     var baseOffset = fromPosition.offset;
     var extentOffset = fromPosition.offset;
 
@@ -168,7 +169,8 @@ class SelectionService {
   // Selects all text, brings into view and triggers build().
   void selectAll(
     SelectionChangedCause cause,
-    RemoveSpecialCharsAndUpdateDocTextAndStyleCallback removeSpecialCharsAndUpdateDocTextAndStyle,
+    RemoveSpecialCharsAndUpdateDocTextAndStyleCallback
+        removeSpecialCharsAndUpdateDocTextAndStyle,
   ) {
     removeSpecialCharsAndUpdateDocTextAndStyle(
       _plainText.copyWith(
@@ -235,10 +237,14 @@ class SelectionService {
   // Brings the caret into view by scrolling the viewport.
   // TODO Double check if the floating cursor still works fine after merging the duplication
   //  prevention code in one single method (Adrian Ian 2023).
-  void cacheSelectionAndUpdGuiElems(TextSelection newSelection, SelectionChangedCause cause) {
+  void cacheSelectionAndUpdGuiElems(
+      TextSelection newSelection, SelectionChangedCause cause) {
     // Prevent duplicate selection render
-    final focusingEmpty = newSelection.baseOffset == 0 && newSelection.extentOffset == 0 && !state.refs.focusNode.hasFocus;
-    final sameSelectionFromKb = newSelection == state.selection.selection && cause != SelectionChangedCause.keyboard;
+    final focusingEmpty = newSelection.baseOffset == 0 &&
+        newSelection.extentOffset == 0 &&
+        !state.refs.focusNode.hasFocus;
+    final sameSelectionFromKb = newSelection == state.selection.selection &&
+        cause != SelectionChangedCause.keyboard;
     final duplicateSelection = !focusingEmpty && sameSelectionFromKb;
 
     if (duplicateSelection) {
@@ -251,7 +257,8 @@ class SelectionService {
     cacheSelectionAndRunBuild(newSelection, ChangeSource.LOCAL);
 
     // Show Selection Handles
-    state.refs.widget.selectionHandlesController?.handlesVisible = _selectionHandlesService.shouldShowSelectionHandles();
+    state.refs.widget.selectionHandlesController?.handlesVisible =
+        _selectionHandlesService.shouldShowSelectionHandles();
 
     // Request Keyboard
     if (!state.keyboard.isVisible) {
@@ -279,7 +286,8 @@ class SelectionService {
   }
 
   // Store the new selection extent values and runs the build to update the document widget tree.
-  void cacheSelectionAndRunBuild(TextSelection textSelection, ChangeSource source) {
+  void cacheSelectionAndRunBuild(
+      TextSelection textSelection, ChangeSource source) {
     cacheSelection(textSelection, source);
     _toggleStylingButtonsIfCodeSelection();
     _runBuildService.runBuild();
@@ -332,8 +340,12 @@ class SelectionService {
 
   // We disable the styling options if the selection contains inline code or code blocks.
   void _toggleStylingButtonsIfCodeSelection() {
-    final selectionIsCodeBlock = state.refs.controller.selectionStyle().attributes.containsKey('code-block');
-    final selectionIsInlineCode = state.refs.controller.selectionStyle().attributes.containsKey('code');
+    final selectionIsCodeBlock = state.refs.controller
+        .selectionStyle()
+        .attributes
+        .containsKey('code-block');
+    final selectionIsInlineCode =
+        state.refs.controller.selectionStyle().attributes.containsKey('code');
     final isCodeSelected = selectionIsCodeBlock || selectionIsInlineCode;
 
     _toolbarService.toggleStylingButtons(!isCodeSelected);

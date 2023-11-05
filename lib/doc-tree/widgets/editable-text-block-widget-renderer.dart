@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../document/models/nodes/block.model.dart';
+import '../../document/models/nodes/node_models.dart';
 import '../../shared/state/editor.state.dart';
 import '../models/vertical-spacing.model.dart';
 import 'editable-text-block-box-renderer.dart';

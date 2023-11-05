@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../controller/controllers/editor-controller.dart';
-import '../../../document/models/nodes/embed-node.model.dart';
+import '../../../document/models/nodes/node_models.dart';
 import '../../../shared/state/editor.state.dart';
 import '../../const/embeds.const.dart';
 import '../../models/embed-builder.model.dart';
