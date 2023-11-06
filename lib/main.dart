@@ -70,6 +70,7 @@ class VisualEditor extends StatefulWidget with EditorStateReceiver {
   final FocusNode focusNode;
   final ScrollController? scrollController;
   final EditorConfigM config;
+  final bool purgeCache;
 
   // Used internally to retrieve the state from the EditorController instance that is linked to this controller.
   // Can't be accessed publicly (by design) to avoid exposing the internals of the library.
@@ -80,6 +81,7 @@ class VisualEditor extends StatefulWidget with EditorStateReceiver {
     required this.focusNode,
     required this.config,
     this.scrollController,
+    this.purgeCache = false,
     Key? key,
   }) : super(key: key) {
     controller.setStateInEditorStateReceiver(this);
@@ -104,6 +106,12 @@ class VisualEditor extends StatefulWidget with EditorStateReceiver {
 
   @override
   void cacheStateStore(EditorState state) {
+    if (purgeCache) {
+      state.refs.controller = controller;
+      state.refs.scrollController = scrollController ?? ScrollController();
+      state.refs.focusNode = focusNode;
+      state.config = config;
+    }
     _state = state;
   }
 }
