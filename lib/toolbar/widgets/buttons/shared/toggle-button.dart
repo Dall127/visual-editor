@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../shared/models/editor-icon-theme.model.dart';
 import '../../toolbar.dart';
 
+// A generic toggle button with styles can be overridden (color and fill).
+// If no callback is provided the button is considered disabled and renders as so.
 class ToggleButton extends StatelessWidget {
   final BuildContext context;
   final IconData icon;
