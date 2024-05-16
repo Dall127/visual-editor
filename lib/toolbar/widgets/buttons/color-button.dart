@@ -1,7 +1,7 @@
 import 'dart:async';
 
+import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 import '../../../controller/controllers/editor-controller.dart';
 import '../../../document/models/attributes/attribute.model.dart';
@@ -124,12 +124,10 @@ class _ColorButtonState extends State<ColorButton> {
   bool get isEnabled => _toolbarService.isStylingEnabled;
 
   void _subscribeToRunBuild() {
-    _runBuild$L =
-        _runBuildService.runBuild$.listen((_) => setState(_cacheToggledColors));
+    _runBuild$L = _runBuildService.runBuild$.listen((_) => setState(_cacheToggledColors));
   }
 
-  Map<String, AttributeM>? get _attributes =>
-      _stylesService.getSelectionStyle().attributes;
+  Map<String, AttributeM>? get _attributes => _stylesService.getSelectionStyle().attributes;
 
   void _cacheToggledColors() {
     if (!(_documentControllerInitialised && _attributes != null)) {
@@ -139,8 +137,7 @@ class _ColorButtonState extends State<ColorButton> {
     _isToggledColor = _stylesService.getIsToggledColor(_attributes!);
     _isToggledBackground = _stylesService.getIsToggledBackground(_attributes!);
     _isWhite = _isToggledColor && _attributes?['color']!.value == '#ffffff';
-    _isWhiteBackground =
-        _isToggledBackground && _attributes?['background']!.value == '#ffffff';
+    _isWhiteBackground = _isToggledBackground && _attributes?['background']!.value == '#ffffff';
   }
 
   void _cacheButtonsColors() {
@@ -149,17 +146,15 @@ class _ColorButtonState extends State<ColorButton> {
     _iconColor = _isToggledColor && !widget.background && !_isWhite
         ? stringToColor(_attributes?['color']!.value)
         : (widget.iconTheme?.iconUnselectedColor ?? theme.iconTheme.color)!;
-    _iconColorBgr =
-        _isToggledBackground && widget.background && !_isWhiteBackground
-            ? stringToColor(_attributes?['background']!.value)
-            : (widget.iconTheme?.iconUnselectedColor ?? theme.iconTheme.color)!;
+    _iconColorBgr = _isToggledBackground && widget.background && !_isWhiteBackground
+        ? stringToColor(_attributes?['background']!.value)
+        : (widget.iconTheme?.iconUnselectedColor ?? theme.iconTheme.color)!;
     _fillColor = _isToggledColor && !widget.background && _isWhite
         ? stringToColor('#ffffff')
         : (widget.iconTheme?.iconUnselectedFillColor ?? theme.canvasColor);
-    _fillColorBgr =
-        _isToggledBackground && widget.background && _isWhiteBackground
-            ? stringToColor('#ffffff')
-            : (widget.iconTheme?.iconUnselectedFillColor ?? theme.canvasColor);
+    _fillColorBgr = _isToggledBackground && widget.background && _isWhiteBackground
+        ? stringToColor('#ffffff')
+        : (widget.iconTheme?.iconUnselectedFillColor ?? theme.canvasColor);
   }
 
   void _showColorPicker() {
@@ -169,8 +164,8 @@ class _ColorButtonState extends State<ColorButton> {
         title: Text('Select Color'.i18n),
         backgroundColor: Theme.of(context).canvasColor,
         content: SingleChildScrollView(
-          child: MaterialPicker(
-            pickerColor: const Color(0x00000000),
+          child: ColorPicker(
+            color: const Color(0x00000000),
             onColorChanged: (color) {
               _stylesService.changeSelectionColor(color, widget.background);
               Navigator.of(context).pop();

@@ -28,8 +28,8 @@ class ToggleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData _theme = Theme.of(context);
-    bool isDarkMode = _theme.brightness == Brightness.dark;
+    final ThemeData _theme = Theme.of(context);
+    final bool isDarkMode = _theme.brightness == Brightness.dark;
 
     final isEnabled = onPressed != null;
     final iconColor = isEnabled

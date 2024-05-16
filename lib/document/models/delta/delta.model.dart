@@ -32,8 +32,7 @@ class DeltaM {
     operations = newDelta.operations;
   }
 
-  static DeltaM fromJson(List jsonOps, {DataDecoder? dataDecoder}) =>
-      _du.fromJson(jsonOps);
+  static DeltaM fromJson(List jsonOps, {DataDecoder? dataDecoder}) => _du.fromJson(jsonOps);
 
   // === QUERIES ===
 
